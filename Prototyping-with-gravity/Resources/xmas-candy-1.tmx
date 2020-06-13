@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="9">
+ <tileset firstgid="1" name="xmas game tileset" tilewidth="32" tileheight="32" tilecount="14136" columns="152">
+  <image source="xmas game tileset.png" width="4866" height="3000"/>
+ </tileset>
+ <layer id="1" name="Background" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2VWMFWcYBuApi66ixV1qN5VUghdbWNytgqRyjbu71W4qoW3wIgUW19pNJRUqQLGFxd2ppfKcJoSy7KQHcpCm5+K5mcl8//f+M7Pz7e6WqkGwJe5vDfIHQUMa0ZgmpOe//X1drx163skudrOHrP9gjj4FgqAv/ejPAAYWiO0aM/MFwdu8w7v5bk6OxIJBkEQyKaSSVvDK+VJ5gqA0ZShLOcpTgYpUyvPvazzq/j7G4zwR5b1equ4ylpPJClayitWsYW0Ua18Wi1pf6v0rvuabKHOkJwRBU5qRQXNa0JJWtKZNQvQ5YlHrOc/p87zAi1E+s1nq7mUf2eznAAc5xGGOXEeOWNT6Xe9/8CdBwejWHZg3CAYxmCEMZRjDGcFIRuWNPkcsa8XF3S6dCwVBF7rSje48xdM8w7P0oCe96F0ovE6md3EFK1nFatawlnWsZwMb2RTlexut09Y/w1nOcZ4LXOQSP/Ezv/Arv4XkiNTJoDktaEkrWtOGtrSjPR3oGFLnRk1MDIJJTGYKU5nGdGbwEi/zCq/yWmJ4nWy97ecABznEYY5wlGMc5wQnmZkWuxwVk8wIVKYKValGdWpwD/dyH/fzQNK1NSL9RAyRZSjDGM4IRjKK0YxhLOMYH7IfN2qNvtayjvVsYCOb2MwHfMhHfMwnueS4nKWoc8UoTgnupiSlKE0ZylKO8klXrotFjtbJnl/a0o72dKAjnehMF7rSje7J4XUW6m0Ri1nC+yxlGcvJZAUrWZV05T5G2+tI14xiNGNy7Odh6x/hKMc4zglOcorTnOEs5zgfkiNSpwENaURjmpBOU5qRQXNa0DL5+nOUdE0pSlMmRx8jU2RkNGMYyzjGM4GJTGIyU5iaErJXju9Qeye72M0estjLPrLZzwEOJl/9XKWYf1NJo3DILLzUNctYTmaOHCVTZaQ0ZShLOcpTgYpUojJVqJoasleO95GlL/3ozwAGMojBDGEowxiecvW9mKv3ecxnQUiOdNc0pRkZOfZzqfWXsZxMVrCSVaxmDWtZx3o2hOSI1EkkiWRSSCWNwhShKMUoTokcdeokBEFd6lE/Ifc1svS+l31k58iRbk+a0owMmtOClrSiNW1oSzvahzzPkTqz9DabOcxlHvNZwHssZBGLWZJ65f2I+EHvW9nG9pAcA10ziMEMybEPWWrsZR/Z7OcABznEYY5wlGMcD8kRqVOTWtSmDnWpR32epAENaUTjtKtz/FPYe57mXGGKRH7Gx/AbmtO3an/H95H9ZSvb2M6P7GAnu9h9E/uIi/s/OXuXWYLzXOAil2hg1mxIIxrHeO68GSb7Lk5hKtOYzgx26H0nu9h9B+R4XU9v8CZv5fItr5xglqAq1ahODfqYFfvSj/4hc/it9KCeHuJhHkm49vw6x9azgY1sYjOJZqwkkkkJmV9vpU/19Bmf80UuOdrmNUvQng50pBOz9D6bOcy9A3L00FNPetE7l7/PHXXsGMc5wUlOUdOMVYva1AmZw+8ko/P5nYKxjGM8E27S/xHi4uLi4uLi4uLi4mLrL1SSYtk=
+  </data>
+ </layer>
+ <objectgroup id="3" name="ObjectLayer">
+  <object id="1" name="SpawnPoint" x="184.179" y="722.389"/>
+ </objectgroup>
+ <objectgroup id="4" name="GroundObject" offsetx="-7" offsety="-7">
+  <object id="3" x="12.2786" y="1092.79" width="1583.94" height="171.9"/>
+  <object id="5" x="144" y="746" width="367" height="133"/>
+  <object id="6" x="721" y="746" width="370" height="159"/>
+  <object id="7" x="1100" y="751" width="308" height="47"/>
+  <object id="8" x="1423" y="753" width="177" height="108"/>
+ </objectgroup>
+ <layer id="2" name="Ground" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1sVulVEYheHNEU4FL1YY4/VSRyroBeB1F5zrwOuljnMNeL3UkQp6EXiFl8GeNPmTj+wzKnslz2SflZVvcpJfKRsbGxsbGxsbGxsbGxsbGxub/yGFLqWKUIwSlKLM5fzur51Un1JpSEcG9mE/DuAgDuGwT37HNG8zmMXc39/dSi1yO7875V93xrlxApOYwnt8wEd8wmd88cnvqOStCtWoQS3q3M7vTvHXjnR3fsI8SoUjApGIQrTH+d0p/tqR7s5PB2+d6EI3etDrcX53ir92pLvzk+lVKgvZyEEu8rzO707x145018bGZuHHG6LUYvgQgEAEIRhLsBTLsBwrsBKrECLsSPZ1x+SWRjShGS1oRRvacRt3cBf3cB8P8BCPhB3Jvu6Y3BK3Wql4JCARSUhGCnZhN/ZgL1KRhnRkCDuSfd0xuWUAgxjCMEYwijG8xhu8xTuMYwKTmBJ2JPu6Y3JL0Rq+gVGCUpShHBU4jTM4i3M4jwu4iEvCjmRfd0xumcEs5qDW8g0MF9zwwIvF8CEAgQhCsLAj2dcdk1uqUI0a1KIO9WjALTSiCc1oQSva0C7sSPZ1x+SW8HV8AyMSUYhGDGKxE3GIRwISkYRkpAg7kn3dMbmlE13oRg960Yd+vMIABjGEYYxgFGPCjmRfd0xuyVrPNzBykIs85KMAhShCMUpQijKUo0LYkezrjsktX/EN3/EDP/ELvzGNGcxiDiqU/x5ccIfKOpJ93TG55TKu4Cqu4Tpu4CYqUYVq1KAWdahHg7Aj2dcdk1s2bVBqM7ZgK7ZhO3YgDOGIQCSiEI0YxAo7kn3dMbnlMZ7gKZ7hOV7gJTrQiS50owe96EO/sCPZ1x2TW45sVOoojuE4TuAkTiETWchGDnKRh3wUCDuSfd0xuWWh5A92AQjJ
+  </data>
+ </layer>
+</map>

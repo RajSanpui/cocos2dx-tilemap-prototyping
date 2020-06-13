@@ -24,6 +24,7 @@ public:
     cocos2d::CCPoint tileCoordForPosition(cocos2d::CCPoint position);
     void update(float dt);
     void initalizePhysics();
+    void jumpSprite(cocos2d::Sprite *mysprite);
     //void initPhysics(void);
 
     cocos2d::CCTMXLayer *_background;

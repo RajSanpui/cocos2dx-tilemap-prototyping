@@ -17,7 +17,7 @@ Scene* HelloWorld::createScene()
 
     auto scene = Scene::createWithPhysics();
     scene->getPhysicsWorld()->setGravity(Vect(0, -900));
-    //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     //CCScene *scene = CCScene::create();
 
     // 'layer' is an autorelease object
@@ -108,6 +108,17 @@ void HelloWorld::update(float dt)
     this->setViewPointCenter(_player->getPosition());
 }
 
+void HelloWorld::jumpSprite(Sprite *mysprite){
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    CCMoveBy *moveUp = CCMoveBy::create(0.2, Vec2(0, visibleSize.height*0.05));
+    CCEaseInOut *easeMoveUp = CCEaseInOut::create(moveUp, 3.0);
+    CCDelayTime *delay = CCDelayTime::create(0.5);
+    CCAction *easeMoveDown = easeMoveUp->reverse();
+    mysprite->runAction(CCSequence::create(easeMoveUp, delay, easeMoveDown, NULL));
+
+}
+
 void HelloWorld::initalizePhysics() {
 
     TMXObjectGroup *collision_rectangles_object_layer = _tileMap->getObjectGroup("GroundObject");
@@ -169,41 +180,42 @@ void HelloWorld::setPlayerPosition(CCPoint position) {
 
 void HelloWorld::moveSoldier(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    CCPoint touchLocation = touch->getLocationInView();
-    touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
+    auto actionTo1 = RotateTo::create(0, 0, 180);
+    auto actionTo2 = RotateTo::create(0, 0, 0);
+    auto touchLocation = touch->getLocation();
+
     touchLocation = this->convertToNodeSpace(touchLocation);
 
-    CCPoint playerPos = _player->getPosition();
-    CCPoint diff = ccpSub(touchLocation, playerPos);
-
-    if ( abs(diff.x) > abs(diff.y) ) {
+    auto playerPos = _player->getPosition();
+    auto diff = touchLocation - playerPos;
+    if (abs(diff.x) > abs(diff.y)) {
         if (diff.x > 0) {
-            playerPos.x += _tileMap->getTileSize().width;
-            //   _player->runAction(actionTo2);
-        } else {
-            playerPos.x -= _tileMap->getTileSize().width;
-            //   _player->runAction(actionTo1);
+            playerPos.x += _tileMap->getTileSize().width / 2;
+            _player->runAction(actionTo2);
         }
-    } else {
+        else {
+            playerPos.x -= _tileMap->getTileSize().width / 2;
+            _player->runAction(actionTo1);
+        }
+    }
+    else {
         if (diff.y > 0) {
-            playerPos.y += _tileMap->getTileSize().height;
-        } else {
-            playerPos.y -= _tileMap->getTileSize().height;
+            playerPos.y += _tileMap->getTileSize().height / 2;
+        }
+        else {
+            playerPos.y -= _tileMap->getTileSize().height / 2;
         }
     }
 
-
-    // safety check on the bounds of the map
-    if (playerPos.x <= (_tileMap->getMapSize().width * _tileMap->getTileSize().width) &&
-        playerPos.y <= (_tileMap->getMapSize().height * _tileMap->getTileSize().height) &&
+    if (playerPos.x <= (_tileMap->getMapSize().width * _tileMap->getMapSize().width) &&
+        playerPos.y <= (_tileMap->getMapSize().height * _tileMap->getMapSize().height) &&
         playerPos.y >= 0 &&
-        playerPos.x >= 0 )
+        playerPos.x >= 0)
     {
         this->setPlayerPosition(playerPos);
-        //_player->setPosition(touchLocation);
+
     }
 
-    //this->setPlayerPosition(playerPos);
     this->setViewPointCenter(_player->getPosition());
 }
 

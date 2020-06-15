@@ -25,7 +25,7 @@ public:
     void update(float dt);
     void initalizePhysics();
     void jumpSprite(cocos2d::Sprite *mysprite);
-    void addEnemy();
+    void addEnemy(float);
     //void initPhysics(void);
     void projectileMoveFinished(cocos2d::Object *pSender);
 

@@ -96,10 +96,11 @@ bool HelloWorld::init()
 
     this->setViewPointCenter(_player->getPosition());
     schedule(schedule_selector(HelloWorld::update));
+    schedule(schedule_selector(HelloWorld::addEnemy), 2);
 
     // Touch init, add boulders and event listeners
     initTouch();
-    addEnemy();
+    addEnemy(0.0);
 
     return true;
 }
@@ -109,7 +110,7 @@ void HelloWorld::update(float dt)
     this->setViewPointCenter(_player->getPosition());
 }
 
-void HelloWorld::addEnemy()
+void HelloWorld::addEnemy(float dt)
 {
     CCTMXObjectGroup *objectGroup = _tileMap->objectGroupNamed("ObjectLayer");
     auto enemyPoints = objectGroup->objectNamed("EnemyPoint");

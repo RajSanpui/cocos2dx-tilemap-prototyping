@@ -15,7 +15,7 @@ public:
 
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
-    cocos2d::Sprite *_player;
+    cocos2d::Sprite *_player, *_enemy;
     cocos2d::CCTMXTiledMap *_tileMap;
 
 
@@ -25,7 +25,9 @@ public:
     void update(float dt);
     void initalizePhysics();
     void jumpSprite(cocos2d::Sprite *mysprite);
+    void addEnemy();
     //void initPhysics(void);
+    void projectileMoveFinished(cocos2d::Object *pSender);
 
     cocos2d::CCTMXLayer *_background;
     cocos2d::CCTMXLayer *_meta;

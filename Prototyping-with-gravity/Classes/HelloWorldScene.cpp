@@ -17,7 +17,7 @@ Scene* HelloWorld::createScene()
 
     auto scene = Scene::createWithPhysics();
     scene->getPhysicsWorld()->setGravity(Vect(0, -900));
-    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     //CCScene *scene = CCScene::create();
 
     // 'layer' is an autorelease object
@@ -55,6 +55,7 @@ bool HelloWorld::init()
     _tileMap = new CCTMXTiledMap();
     // _tileMap->initWithTMXFile("TileMap.tmx");
     _tileMap->initWithTMXFile("xmas-candy-1.tmx");
+    //_tileMap->setScale(0.8f);
 
     _background = _tileMap->layerNamed("Background");
     _foreground = _tileMap->layerNamed("Ground");
@@ -82,7 +83,6 @@ bool HelloWorld::init()
     _player = Sprite::create("monkey.png");
     _player->setPosition(ccp(x,y));
 
-
     auto circle = PhysicsBody::createBox(_player -> getContentSize());
     circle->setContactTestBitmask(true);
     circle->setDynamic(true);
@@ -99,6 +99,7 @@ bool HelloWorld::init()
 
     // Touch init, add boulders and event listeners
     initTouch();
+    addEnemy();
 
     return true;
 }
@@ -106,6 +107,59 @@ bool HelloWorld::init()
 void HelloWorld::update(float dt)
 {
     this->setViewPointCenter(_player->getPosition());
+}
+
+void HelloWorld::addEnemy()
+{
+    CCTMXObjectGroup *objectGroup = _tileMap->objectGroupNamed("ObjectLayer");
+    auto enemyPoints = objectGroup->objectNamed("EnemyPoint");
+
+    int x = enemyPoints.at("x").asInt();
+    int y = enemyPoints.at("y").asInt();
+
+    _enemy = Sprite::create("Player.png");
+    _enemy->setPosition(ccp(x,y));
+    this->addChild(_enemy);
+
+    auto projectile = Sprite::create("bomba.png");
+    projectile->setPosition(_enemy->getPosition());
+    this->addChild(projectile);
+
+    int realX;
+    auto diff =  _player->getPosition() - _enemy->getPosition();
+    if (diff.x > 0)
+    {
+        realX = (_tileMap->getMapSize().width * _tileMap->getTileSize().width) +
+                (projectile->getContentSize().width / 2);
+    }
+    else {
+        realX = -(_tileMap->getMapSize().width * _tileMap->getTileSize().width) -
+                (projectile->getContentSize().width / 2);
+    }
+    float ratio = (float)diff.y / (float)diff.x;
+    int realY = ((realX - projectile->getPosition().x) * ratio) +projectile->getPosition().y;
+    auto realDest = Point(realX, realY);
+    int offRealX = realX - projectile->getPosition().x;
+    int offRealY = realY - projectile->getPosition().y;
+    float length = sqrtf((offRealX*offRealX) + (offRealY*offRealY));
+    float velocity = 480 / 1; // 480pixels/1sec
+    float realMoveDuration = length / velocity;
+
+    auto actionMoveDone =CallFuncN::create(CC_CALLBACK_1(HelloWorld::projectileMoveFinished, this));
+    projectile->runAction(Sequence::create(MoveTo::create(realMoveDuration,realDest), actionMoveDone, NULL));
+    //auto circle = PhysicsBody::createBox(_player -> getContentSize());
+    //circle->setContactTestBitmask(true);
+    //circle->setDynamic(true);
+    //_player->setPhysicsBody(circle);
+
+
+}
+
+void HelloWorld::projectileMoveFinished(Object *pSender)
+{
+    Sprite *sprite = (Sprite *)pSender;
+    this->removeChild(sprite);
+    this->removeChild(_enemy);
 }
 
 void HelloWorld::jumpSprite(Sprite *mysprite){
@@ -167,7 +221,8 @@ void HelloWorld::initTouch()
 {
     auto listener = EventListenerTouchOneByOne::create();
     listener -> onTouchBegan = [] (Touch* touch, Event* event) { return true;};
-    listener -> onTouchEnded = CC_CALLBACK_2(HelloWorld::moveSoldier, this);
+    //listener -> onTouchEnded = CC_CALLBACK_2(HelloWorld::moveSoldier, this);
+    listener -> onTouchMoved = CC_CALLBACK_2(HelloWorld::moveSoldier, this);
     //listener -> onTouchEnded = [=] (Touch* touch, Event* event) {};
     _eventDispatcher -> addEventListenerWithSceneGraphPriority(listener, this);
 }
@@ -221,7 +276,7 @@ void HelloWorld::moveSoldier(cocos2d::Touch *touch, cocos2d::Event *event)
 
 CCPoint HelloWorld::tileCoordForPosition(CCPoint position)
 {
-int x = position.x / _tileMap->getTileSize().width;
-int y = ((_tileMap->getMapSize().height * _tileMap->getTileSize().height) - position.y) / _tileMap->getTileSize().height;
-return ccp(x, y);
+    int x = position.x / _tileMap->getTileSize().width;
+    int y = ((_tileMap->getMapSize().height * _tileMap->getTileSize().height) - position.y) / _tileMap->getTileSize().height;
+    return ccp(x, y);
 }

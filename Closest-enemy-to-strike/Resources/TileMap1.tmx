@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="19">
+ <tileset firstgid="1" name="tmw_desert_spacing" tilewidth="32" tileheight="32" tilecount="48" columns="8">
+  <image source="tmw_desert_spacing.png" width="265" height="199"/>
+ </tileset>
+ <tileset firstgid="49" name="meta_tiles" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="meta_tiles.png" width="67" height="34"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer id="1" name="Background" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3DAQkAAAwEoWvw/dsux0DBVVNVVVVVVVVVVdXnD8xNnqUQJwAA
+  </data>
+ </layer>
+ <layer id="2" name="Foreground" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3UsQkAMAgEQOvsP3B2EBMV7sDW9xsjAAAA6HKS063ipik9KnZ0d6nK12NW/usev37Npt8GAAAAAOx3Aa3QSysQJwAA
+  </data>
+ </layer>
+ <objectgroup id="3" name="Objects">
+  <object id="1" name="SpawnPoint" x="288.546" y="460.446"/>
+ </objectgroup>
+ <objectgroup id="5" name="Obstacles">
+  <object id="9" x="538.361" y="320.503" width="416.863" height="60.7489">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </object>
+  <object id="11" x="219.953" y="724.797" width="299.555" height="43.9906"/>
+  <object id="12" x="475.517" y="567.688" width="41.8958" height="196.91"/>
+  <object id="13" x="601.205" y="546.74" width="460.854" height="39.801"/>
+  <object id="14" x="488.086" y="571.877" width="155.014" height="41.8958"/>
+  <object id="16" x="588.636" y="542.55" width="475.517" height="58.6541"/>
+  <object id="17" x="1020.16" y="609.584" width="79.602" height="163.394"/>
+  <object id="18" x="1114.43" y="718.513" width="295.365" height="54.4645"/>
+ </objectgroup>
+ <layer id="4" name="Meta" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3PQQ0AAAjEsLOEf3NogBchbTIBSwAAklp00ZcPAAAAAAAAAOYaT0CbvhAnAAA=
+  </data>
+ </layer>
+</map>

@@ -163,16 +163,6 @@ void HelloWorld::projectileMoveFinished(Object *pSender)
     this->removeChild(_enemy);
 }
 
-void HelloWorld::jumpSprite(Sprite *mysprite){
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    CCMoveBy *moveUp = CCMoveBy::create(0.2, Vec2(0, visibleSize.height*0.05));
-    CCEaseInOut *easeMoveUp = CCEaseInOut::create(moveUp, 3.0);
-    CCDelayTime *delay = CCDelayTime::create(0.5);
-    CCAction *easeMoveDown = easeMoveUp->reverse();
-    mysprite->runAction(CCSequence::create(easeMoveUp, delay, easeMoveDown, NULL));
-
-}
 
 void HelloWorld::initalizePhysics() {
 

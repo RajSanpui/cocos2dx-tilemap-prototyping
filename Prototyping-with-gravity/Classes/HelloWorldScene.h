@@ -24,7 +24,7 @@ public:
     cocos2d::CCPoint tileCoordForPosition(cocos2d::CCPoint position);
     void update(float dt);
     void initalizePhysics();
-    void jumpSprite(cocos2d::Sprite *mysprite);
+
     void addEnemy(float);
     //void initPhysics(void);
     void projectileMoveFinished(cocos2d::Object *pSender);

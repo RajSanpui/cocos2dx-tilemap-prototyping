@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-up" width="64" height="64" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="13">
+ <tileset firstgid="1" name="xmas game tileset" tilewidth="32" tileheight="32" tilecount="14136" columns="152">
+  <image source="xmas game tileset.png" width="4866" height="3000"/>
+ </tileset>
+ <tileset firstgid="14137" name="stairs3" tilewidth="32" tileheight="32" tilecount="12" columns="4">
+  <image source="../../Resources/craftpix-635807-xmas-candy-tileset/png object/stairs3.png" width="149" height="113"/>
+ </tileset>
+ <layer id="1" name="Background" width="64" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt2VdQFVcAgOGVC4rce7nYQhcRNe0lZVJGRQ1FegdrimVSninSpatgSXtJGZMMihpL6B1Me0mZFFPUUKR3UBE1bVL+fXAI4e4EYSkTzsP3sjt79vxbLnuGCy6SdOF/IFcaHzXO7TZXktzhAU9shNfc2dNfR2s9GtCIK2iaRf2R8yQpCtGIwR7EzlO376iZJL2Dd/Ge2czqtzCXJC100MMSBvPh/TYmkmQLO9jDAY5YCicsM/nvczzG8/Q4nsCTRp4tNfvzmU8BClGEYpSgFGUoR8UY5nyHGmN9RfPX+AbfTnK/l0aSvOEDX/jBHwEIRBCCNWPvV2Os53mfXsCLeMnIu6VmfxPzaUYLWtGGdnSgE13ovot+Ncb6g+Y/8Rck88ntjzWVpDjEIwGJSEIy9iIFqaZj71dzLCXT+fs3E4h+0T/R/s3zJWkLtmIbtuNpPINn8Rx2YCd2Yfd843ORxyniN6oYJShFGcpRgUpUoRo1qDXyezYd/deY93UM4gaGcBO3cBs/4xf8it/wu0K/PI4v/OCPAAQiCMEIQSjCEI4IhXGmun+/hSQdQDZycBCHcBhH8DJewat4Da9bGJ+LPE4rTW1oRwc60YVu9KAXfejHAI4apr/fScu3KJyxHC5YgZVYhXtxH+7HA3hQO3oecocsgWuQiCQkYy9SkIo0pCMDmchSuI5T3V9OTwUqUYVq1KAW5/EhPsLH+ASfGum/cw0Wsm8RFmMJ7oE1bGALO9jDAY7a4eOmsz9Ix/uJEIQiDOGIwCZsxhZsxTZs1xmfizzOaZrO4CzO4QPkowCFKEIxSlCqHX5uxtqbwjGpSEO6Vp3+LubdjR70og/9GMBVXMN1DOIGhhT65XHc4A4PeGIjvOANH/jCD/4I0N19vzXH2MAWdjp1+lP0XFOkIR0ZyEQW9mE/DiAbOTioV7g3bK9jTvVoQCOuoAnNaEEr2tCODt3I519vwhoaBliZGD9HPscUoBBFKvVbW3JNYQs72MMBjlgKJyyDM5bDxVLh3rA9kmsQhWjEYA9iEYd4JCARSUjWj7z3eTSfwEmcUuj34hhv+MBXr05/PvMuQCGKUIwSlKIM5ahAJapQrdAvj2MBLXTQwxIGWGEBFmIRFmPJv8Zx1UjSOqzHBo3xczTR3IwWtKrU78U98IYPfOEHfwQgEEEIRghCEabwvsrj5NJ0DMeRhxM4iVN4H6dxBmdxznL4/Zf9SPNFXMJlhf5YjolDPBIs1elv4tzNaEEr2tCODnSiC93oQS/6FPrlcVZjDdbCFeuwHhvwFNzgDg94Gkb2/5PS75+BfVZYIP+tNajTr6bvmNP3+EG+n7iIS7iMn1CHejSgcYLffrKZ1j/VRL/onw39g3P49sQQbuIWbs8Zf78bay93eMBThXXYZMvmeygHB3EIh3HEZPz9dTTXowGNM6D/DVrexFt422T0fmcN355wwQqsxCrN+PsjWTtFIRoxCuvZqfQQLQ/jETyqGb2/km1VqEYNanF+Av0WrB200EGvsJ6bSp/R8jm+wJdG+kNM+fZEGMIRgU2m4+/PpfkYjiNvBvTvoGUndmG3kf+L9LCtF33oxwCuTqB/NWuHNVgLV4X17EySZsbaHBnIRBb2mc2ev39KRL/oF/2iX/SLftEv+kW/6Bf9ol/0i35BEARBEARBEARB+Bsqv1UN
+  </data>
+ </layer>
+ <objectgroup id="3" name="ObjectLayer">
+  <object id="1" name="SpawnPoint" x="184.179" y="722.389"/>
+  <object id="9" name="EnemyPoint1" x="1482" y="722.667"/>
+  <object id="10" name="EnemyPoint2" x="1326" y="726"/>
+  <object id="11" name="EnemyPoint3" x="941" y="724"/>
+  <object id="12" name="EnemyPoint4" x="753" y="724"/>
+ </objectgroup>
+ <objectgroup id="4" name="GroundObject" offsetx="-7" offsety="-7">
+  <object id="3" x="12.2786" y="1092.79" width="1583.94" height="171.9"/>
+  <object id="5" x="144" y="746" width="367" height="133"/>
+  <object id="6" x="721" y="746" width="370" height="159"/>
+  <object id="7" x="1100" y="751" width="308" height="47"/>
+  <object id="8" x="1423" y="753" width="177" height="108"/>
+ </objectgroup>
+ <layer id="2" name="Ground" width="64" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt18VyVFEQgOFDJmEieLDAGo+HOBJBHwCPu+A8Bx4PcZxnwOMhjkTQh8Aj/Fnc5VT13DvZUP1XfZtbfZrOhqoxRtM0TdM0TdM0TdM0TdM0TdP+/4r8jClGCUpRhnI/z999tSfNbUw6MpCJAziIQziMIzjq9v4Ob5th1yzmML+w12XMEpfn777aM8HfNokpTOMjPuEzvuArvrm9v8PbqthVjRrUog71Ls/fF3uPdK+vCvc3JgKRiEI0Yvw9f1/sPdK9vqqTXV3oRg960efv+fti75Hu9VVZAcZkIwe5yEN+gOfvi71HulfTNE3zroBQY5bCjUAEIRghWIblWIGVWIXVWINQ4YxkvzXj5Ba7NfG2GS1oRRva0YG7uIf7eICHeITHeCKckey3ZpzcYrf4tcYkIBFJSEYKUrEHe7EP+5GGdGQgUzgj2W/NOLnFboO8HcIwRjCKMYzjLd7hPT5gApOYwrRwRrLfmnFyi92K1/FbEqUoQzkqUImzOIfzuICLuITLuCKckey3ZpzcYrdZ3s5hfmHHen5Lwg8u+CMAS+FGIIIQjBDhjGS/NePkFrtV87YGtahDPRrQiDtoQjNa0Io2tKNDOCPZb804ucVuERv4LYkoRCMGsYjDbsQjAYlIQjJSkCqckey3ZpzcYrcu3najB73oQz8G8AaDGMIwRjCKMYwLZyT7rRknt9gteyO/JZGLPOSjAIUoQjFKUIoylKMClcIZyX5rxsktdvvO2x/4iV/4jT/4ixnMYg7zC/9GGP8nwQ+uMNmMZL814+QWu13l7TVcxw3cxC3cRhWqUYNa1KEeDWgUzkj2WzNObrHblk3GbMU2bMcO7MQuhCMCkYhCNGIQizjhjGS/NePkFrs95e0zPMcLvMQrvEYnutCNHvSiD/0YEM5I9lszTm6x27HNxhzHCZzEKZzGGWQhGznIRR7yUYBC4YxkvzXj5BZN0zRN0zRN0zRN0zz3D/KqCMk=
+  </data>
+ </layer>
+</map>

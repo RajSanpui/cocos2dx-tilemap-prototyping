@@ -1,26 +1,4 @@
-/****************************************************************************
- Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
- 
- http://www.cocos2d-x.org
- 
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
- 
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
- 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.
- ****************************************************************************/
+
 
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
@@ -112,6 +90,7 @@ bool HelloWorld::init()
     this->addChild(_player);
 
     this->setViewPointCenter(_player->getPosition());
+    initTouch();
 
     // Add enemies
     for (auto& eSpawnPoint: objectGroup->getObjects()){
@@ -123,6 +102,7 @@ bool HelloWorld::init()
         }
     }
 
+
     return true;
 }
 
@@ -130,7 +110,7 @@ void HelloWorld::addEnemyAtPos(Point pos)
 {
     auto enemy = Sprite::create("Player.png");
     enemy->setPosition(pos);
-    enemy->setScale(0.5);
+    //enemy->setScale(0.5);
     this->animateEnemy(enemy);
     this->addChild(enemy);
 
@@ -139,7 +119,7 @@ void HelloWorld::addEnemyAtPos(Point pos)
 
 void HelloWorld::animateEnemy(Sprite *enemy)
 {
-    float actualDuration = 4.0f;
+    float actualDuration = 3.0f;
     auto position = (_player->getPosition() - enemy->getPosition());
     auto actionMove = MoveBy::create(actualDuration, position);
     auto actionMoveDone = CallFuncN::create(CC_CALLBACK_1(HelloWorld::enemyMoveFinished, this));
@@ -150,6 +130,62 @@ void HelloWorld::enemyMoveFinished(Object *pSender)
 {
     Sprite *enemy = (Sprite *)pSender;
     this->animateEnemy(enemy);
+}
+
+void HelloWorld::initTouch()
+{
+    auto listener = EventListenerTouchOneByOne::create();
+    listener -> onTouchBegan = [] (Touch* touch, Event* event) { return true;};
+    //listener -> onTouchEnded = CC_CALLBACK_2(HelloWorld::moveSoldier, this);
+    listener -> onTouchMoved = CC_CALLBACK_2(HelloWorld::moveSoldier, this);
+    //listener -> onTouchEnded = [=] (Touch* touch, Event* event) {};
+    _eventDispatcher -> addEventListenerWithSceneGraphPriority(listener, this);
+}
+
+void HelloWorld::moveSoldier(cocos2d::Touch *touch, cocos2d::Event *event)
+{
+    auto actionTo1 = RotateTo::create(0, 0, 180);
+    auto actionTo2 = RotateTo::create(0, 0, 0);
+    auto touchLocation = touch->getLocation();
+
+    touchLocation = this->convertToNodeSpace(touchLocation);
+
+    auto playerPos = _player->getPosition();
+    auto diff = touchLocation - playerPos;
+    if (abs(diff.x) > abs(diff.y)) {
+        if (diff.x > 0) {
+            playerPos.x += _tileMap->getTileSize().width / 2;
+            _player->runAction(actionTo2);
+        }
+        else {
+            playerPos.x -= _tileMap->getTileSize().width / 2;
+            _player->runAction(actionTo1);
+        }
+    }
+    else {
+        if (diff.y > 0) {
+            playerPos.y += _tileMap->getTileSize().height / 2;
+        }
+        else {
+            playerPos.y -= _tileMap->getTileSize().height / 2;
+        }
+    }
+
+    if (playerPos.x <= (_tileMap->getMapSize().width * _tileMap->getMapSize().width) &&
+        playerPos.y <= (_tileMap->getMapSize().height * _tileMap->getMapSize().height) &&
+        playerPos.y >= 0 &&
+        playerPos.x >= 0)
+    {
+        this->setPlayerPosition(playerPos);
+
+    }
+
+    this->setViewPointCenter(_player->getPosition());
+}
+
+void HelloWorld::setPlayerPosition(CCPoint position) {
+
+    _player->setPosition(position);
 }
 
 void HelloWorld::setViewPointCenter(CCPoint position) {

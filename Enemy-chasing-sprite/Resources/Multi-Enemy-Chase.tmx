@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="6">
+ <tileset firstgid="1" name="xmas game tileset" tilewidth="32" tileheight="32" tilecount="14136" columns="152">
+  <image source="xmas game tileset.png" width="4866" height="3000"/>
+ </tileset>
+ <layer id="1" name="Background" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKHrX+jrLcdAwVVTVVVVVVVVVVXV5w+Wmvt3
+  </data>
+ </layer>
+ <layer id="2" name="Foreground" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2LVxA1EURuFXgtmSdrVimV2HmZnqMDNTLWZmqsPMTLHPpht65m1g3zPzJTe4BfxKSZIkSdLv8xhKeeGDARN+WAggiBDCiCCKGOLIQCaykI0c5CIP+Ybe387muM1jAYtYwjJWsIo1rGMDm9jCNnawiz3s4wCHOMIxTgy9v50VmEoVogjFKEEpylCOClSiCtWoQS3qUI8GNKIJzWhBK9pMvb+dnXI7wzkucIkrXOMGt7jDPR7wiCc84wWveMM7PvCJL3yben87a/cr1YFOdKEbPehFH/oxgEEMYRgjGMUYxjGBSUxhGjOY9ev97SzBUioRSUhGClKRhnR44IUPBkz4YSGAIEIII4IoYohben9LkiRJkiRJkiRJkiRJ/yNdW7KbG7Wdri3ZzY3aTteW7OZGbadrS3Zzo7bTtSW7uVHb6dqSZaOWJEn6m/0Ak8Iz/w==
+  </data>
+ </layer>
+ <objectgroup id="4" name="ObjectLayer">
+  <object id="1" name="SpawnPoint" x="783.782" y="828.803"/>
+  <object id="2" name="Enemy" x="261.943" y="562.768">
+   <properties>
+    <property name="Enemy" value="1"/>
+   </properties>
+  </object>
+  <object id="3" name="Enemy" x="1297.44" y="540.257">
+   <properties>
+    <property name="Enemy" value="1"/>
+   </properties>
+  </object>
+  <object id="4" name="Enemy" x="221.014" y="1078.47">
+   <properties>
+    <property name="Enemy" value="1"/>
+   </properties>
+  </object>
+  <object id="5" name="Enemy" x="1379.29" y="1109.16">
+   <properties>
+    <property name="Enemy" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
